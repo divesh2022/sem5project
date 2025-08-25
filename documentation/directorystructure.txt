@@ -1,0 +1,77 @@
+dit/
+├── .dit/                        # Internal metadata (like .git/)
+│   ├── config.json              # Repo-specific config (user role, restrictions)
+│   ├── commits/                 # Commit history snapshots
+│   ├── logs/                    # Action logs per user
+│   └── plagiarism/             # Scan results and similarity reports
+│
+├── backend/
+│   ├── main.py                  # FastAPI entry point
+│   ├── routers/                 # Modular role-based routers
+│   │   ├── student.py
+│   │   ├── team_member.py
+│   │   ├── team_leader.py
+│   │   └── faculty.py
+│   ├── services/                # Core logic and utilities
+│   │   ├── repo_manager.py      # Version control logic
+│   │   ├── cli_engine.py        # CLI command parser
+│   │   ├── auth.py              # JWT/session-based authentication
+│   │   ├── file_tracker.py      # File origin tagging and validation
+│   │   └── plagiarism_checker.py# AI-based similarity detection
+│   ├── models/                  # Pydantic models
+│   │   ├── user.py
+│   │   ├── commit.py
+│   │   └── file.py
+│   └── database/
+│       ├── db.py                # DB connection logic
+│       └── schemas.sql          # SQL schema definitions
+│
+├── cli/
+│   ├── __init__.py
+│   ├── commands/
+│   │   ├── init.py
+│   │   ├── add.py
+│   │   ├── commit.py
+│   │   ├── push.py
+│   │   ├── pull.py
+│   │   ├── status.py
+│   │   └── log.py
+│   └── parser.py               # Argparse or Click-based CLI parser
+│
+├── editor/
+│   ├── streamlit_app.py        # Streamlit frontend entry point
+│   ├── components/
+│   │   ├── file_editor.py
+│   │   ├── dashboard.py
+│   │   └── sandbox_mode.py
+│   ├── utils/
+│   │   ├── syntax_highlighter.py
+│   │   └── paste_monitor.py
+│   └── assets/
+│       ├── styles.css
+│       └── icons/
+│
+├── tests/
+│   ├── unit/
+│   │   ├── test_cli.py
+│   │   ├── test_auth.py
+│   │   └── test_repo_manager.py
+│   ├── integration/
+│   │   ├── test_editor_workflow.py
+│   │   └── test_plagiarism_detection.py
+│   └── mock_data/
+│       ├── sample_code.py
+│       └── plagiarized_snippet.py
+│
+├── docs/
+│   ├── README.md               # Project overview
+│   ├── API_REFERENCE.md        # Backend endpoint documentation
+│   ├── CONTRIBUTING.md         # Contribution guidelines
+│   ├── CODE_OF_CONDUCT.md      # Community standards
+│   └── architecture_diagram.png
+│
+├── .env                        # Environment variables
+├── .gitignore
+├── requirements.txt
+├── setup.py                    # Optional packaging
+└── LICENSE
